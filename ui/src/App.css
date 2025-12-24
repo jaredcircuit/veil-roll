@@ -1,0 +1,46 @@
+.app-root {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-root::before,
+.app-root::after {
+  content: '';
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  opacity: 0.25;
+  filter: blur(0px);
+  z-index: 0;
+}
+
+.app-root::before {
+  top: -120px;
+  right: -120px;
+  background: radial-gradient(circle, rgba(224, 122, 95, 0.75), transparent 70%);
+  animation: glowPulse 6s ease-in-out infinite;
+}
+
+.app-root::after {
+  bottom: -180px;
+  left: -140px;
+  background: radial-gradient(circle, rgba(58, 124, 165, 0.5), transparent 70%);
+  animation: glowPulse 7s ease-in-out infinite 0.5s;
+}
+
+.app-root > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
